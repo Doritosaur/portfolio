@@ -117,7 +117,7 @@ export const useContentStore = create<ContentState>(() => ({
             tags: ["React", "Node.js", "WebSockets", "Docker", "Redis"],
             year: "2025",
             image: "/project-poly.png",
-            link: "https://github.com/amanneox/polymarket-bot"
+            link: "https://github.com/Doritosaur/polymarket-bot"
         },
         {
             id: "PROJ_02",
@@ -127,7 +127,7 @@ export const useContentStore = create<ContentState>(() => ({
             tags: ["React", "TypeScript", "Canvas API", "WebSockets", "Performance"],
             year: "2025",
             image: "/project-hft.png",
-            link: "https://github.com/amanneox/orderbook-ui"
+            link: "https://github.com/Doritosaur/orderbook-ui"
         },
         {
             id: "PROJ_03",
@@ -156,28 +156,28 @@ export const useContentStore = create<ContentState>(() => ({
             subtitle: "500+ TPS",
             description: "Real-time ingestion with message batching (50ms) and memoized selectors.",
             image: "/blueprint-1.jpg",
-            link: "https://github.com/amanneox/schema-draw/blob/main/assets/websocket.png"
+            link: "https://github.com/Doritosaur/schema-draw/blob/main/assets/websocket.png"
         },
         {
             title: "CUSTOM_RENDERER",
             subtitle: "CANVAS API",
             description: "Quadtree spatial indexing for efficient zoom/pan on 100k+ data points.",
             image: "/blueprint-2.jpg",
-            link: "https://github.com/amanneox/schema-draw/blob/main/assets/quad-tree-arch.png"
+            link: "https://github.com/Doritosaur/schema-draw/blob/main/assets/quad-tree-arch.png"
         },
         {
             title: "DATA_NORMALIZER",
             subtitle: "ETHEREUM RPC",
             description: "Parsing raw RPC responses into strongly-typed domain models with validation.",
             image: "/blueprint-3.jpg",
-            link: "https://github.com/amanneox/schema-draw/blob/main/assets/eth-rpc-parser.png"
+            link: "https://github.com/Doritosaur/schema-draw/blob/main/assets/eth-rpc-parser.png"
         },
         {
             title: "HFT_ORDERBOOK",
             subtitle: "FAST UI",
             description: "Optimized rendering pipeline achieving sub-16ms frame times under heavy update loads.",
             image: "/blueprint-4.jpg",
-            link: "https://github.com/amanneox/schema-draw/blob/main/assets/hft-orderbook.png"
+            link: "https://github.com/Doritosaur/schema-draw/blob/main/assets/hft-orderbook.png"
         }
     ]
 }));
