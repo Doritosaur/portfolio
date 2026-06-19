@@ -58,7 +58,7 @@ export const useContentStore = create<ContentState>(() => ({
         location: "DEHRADUN // INDIA",
         status: "AVAILABLE",
         avatar: "/profile.png",
-        resumeLink: "https://drive.google.com/file/d/1akZk8fE7D0YIsiBW3YY7gDkD73d8hJbG/view?usp=sharing"
+        resumeLink: "https://drive.google.com/file/d/1oA6ig9c92qEvkzlfQPKWvoBcdzpvFvDc/view?usp=sharing"
     },
     missions: [
         {
