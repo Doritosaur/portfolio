@@ -62,6 +62,13 @@ export const useContentStore = create<ContentState>(() => ({
     },
     missions: [
         {
+            year: "2026 - PRESENT",
+            role: "FULL_STACK_ENGINEER",
+            company: "SUPERLAW",
+            description: "Building legal-tech product workflows with modern full-stack systems. Shipping user-facing features, backend services, and integrations for document-heavy legal operations.",
+            status: "ACTIVE"
+        },
+        {
             year: "2022 - 2024",
             role: "CO_FOUNDER",
             company: "CRYPTK",
