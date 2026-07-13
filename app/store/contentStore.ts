@@ -58,7 +58,7 @@ export const useContentStore = create<ContentState>(() => ({
         location: "DEHRADUN // INDIA",
         status: "AVAILABLE",
         avatar: "/profile.png",
-        resumeLink: "https://drive.google.com/file/d/1oA6ig9c92qEvkzlfQPKWvoBcdzpvFvDc/view?usp=sharing"
+        resumeLink: "https://drive.google.com/file/d/11FiHlMzeQneIJGoQRT-1l4-cHaIZlwQ8/view?usp=sharing"
     },
     missions: [
         {
@@ -118,16 +118,46 @@ export const useContentStore = create<ContentState>(() => ({
     projects: [
         {
             id: "PROJ_01",
+            title: "Plotcraft",
+            description: "Interactive charting library",
+            longDescription: "A flexible charting library for building clear, interactive data visualizations. Designed around reusable chart components and a polished developer experience for turning complex datasets into responsive visual stories.",
+            tags: ["React", "TypeScript", "Data Visualization", "Charting"],
+            year: "2026",
+            image: "/project-chart.png",
+            link: "https://plotcraft-c49c4kynw-amanadhikari2-3531s-projects.vercel.app/"
+        },
+        {
+            id: "PROJ_02",
+            title: "Architect",
+            description: "Visual software architecture platform",
+            longDescription: "A polished product experience for software architects and engineering teams. Presents a visual workflow for designing system diagrams, mapping user flows, collaborating on architecture, and generating production-ready code.",
+            tags: ["Next.js", "React", "TypeScript", "Product Design"],
+            year: "2026",
+            image: "/project-architect.png",
+            link: "https://architect-landing-sandy.vercel.app/"
+        },
+        {
+            id: "PROJ_03",
+            title: "Lumina",
+            description: "High-performance landing page with Framer Motion",
+            longDescription: "Visually stunning landing page featuring complex scroll-triggered animations, staggered reveals, and fluid page transitions powered by Framer Motion. Optimized for 60fps performance with GPU-accelerated transforms and reduced motion support for accessibility.",
+            tags: ["React", "Framer Motion", "CSS Animations", "Performance"],
+            year: "2025",
+            image: "/project-landing.png",
+            link: "https://landing-001-smoky.vercel.app/"
+        },
+        {
+            id: "PROJ_04",
             title: "Polymarket Terminal",
             description: "Prediction market analytics platform",
             longDescription: "Full-stack analytics terminal for prediction markets. Ingests thousands of daily trades via WebSocket streams. Features interactive heat maps, real-time position tracking, and automated signal generation. Built with React, Node.js, and Redis for sub-second latency.",
             tags: ["React", "Node.js", "WebSockets", "Docker", "Redis"],
             year: "2025",
             image: "/project-poly.png",
-            link: "https://github.com/Doritosaur/polymarket-bot"
+            link: "https://polymarket-dashboard-nbyi.onrender.com/"
         },
         {
-            id: "PROJ_02",
+            id: "PROJ_05",
             title: "HFT Orderbook",
             description: "Ultra-low latency trading interface",
             longDescription: "Professional-grade orderbook visualization for high-frequency trading. Handles 10,000+ updates/second with sub-16ms frame times. Custom Canvas rendering engine with 100K+ candle capacity. Built for institutional traders requiring millisecond precision.",
@@ -137,24 +167,14 @@ export const useContentStore = create<ContentState>(() => ({
             link: "https://github.com/Doritosaur/orderbook-ui"
         },
         {
-            id: "PROJ_03",
+            id: "PROJ_06",
             title: "AI-Powered Docs Platform",
             description: "Intelligent documentation engine",
             longDescription: "Next-generation documentation platform with MDX support, live code previews, and AI-assisted search. Kafka-based content indexing, and intelligent code completion. Reduces documentation lookup time by 70%.",
             tags: ["React", "TypeScript", "MDX", "Kafka"],
             year: "2025",
             image: "/project-docs.png",
-            link: "https://ai-docs-pi.vercel.app/"
-        },
-        {
-            id: "PROJ_04",
-            title: "Animated Landing Page",
-            description: "High-performance landing page with Framer Motion",
-            longDescription: "Visually stunning landing page featuring complex scroll-triggered animations, staggered reveals, and fluid page transitions powered by Framer Motion. Optimized for 60fps performance with GPU-accelerated transforms and reduced motion support for accessibility.",
-            tags: ["React", "Framer Motion", "CSS Animations", "Performance"],
-            year: "2025",
-            image: "/project-landing.png",
-            link: "https://landing-001-smoky.vercel.app/"
+            link: "https://ai-docs-app-hp83.onrender.com/"
         }
     ],
     blueprints: [

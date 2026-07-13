@@ -1,12 +1,42 @@
 @import "tailwindcss";
 
+/* ─── Theme Tokens (Tailwind v4 @theme) ───────────────────────────── */
+@theme {
+  /* Colors */
+  --color-primary:       #22d3ee;   /* cyan-400 — main accent */
+  --color-primary-dim:   #06b6d4;   /* cyan-500 */
+  --color-primary-muted: #0891b2;   /* cyan-600 */
+  --color-primary-deep:  #164e63;   /* cyan-900 */
+  --color-primary-bg:    #083344;   /* cyan-950 */
+
+  --color-surface:       #18181b;   /* zinc-900 */
+  --color-surface-dim:   #09090b;   /* zinc-950 */
+  --color-surface-mid:   #27272a;   /* zinc-800 */
+  --color-surface-up:    #3f3f46;   /* zinc-700 */
+
+  --color-base:          #050505;   /* near-black page bg */
+
+  --color-text:          #e4e4e7;   /* zinc-200 */
+  --color-text-muted:    #a1a1aa;   /* zinc-400 */
+  --color-text-dim:      #71717a;   /* zinc-500 */
+  --color-text-faint:    #52525b;   /* zinc-600 */
+  --color-text-bright:   #f4f4f5;   /* zinc-100 */
+
+  --color-amber:         #ffb000;   /* terminal amber */
+
+  /* Fonts */
+  --font-hud:     var(--font-orbitron), monospace;   /* HUD / tech labels */
+  --font-display: var(--font-cinzel), serif;         /* Anime title display */
+  --font-mono:    ui-monospace, monospace;           /* code / terminal */
+}
+
+/* ─── CSS variables (kept for legacy var() references) ────────────── */
 :root {
-  --terminal-green: #22d3ee;
-  --terminal-amber: #ffb000;
-  --terminal-dim: #155e75;
-  /* 90s Anime Aesthetics */
-  --font-orbitron: var(--font-orbitron);
-  --font-cinzel: var(--font-cinzel);
+  --terminal-green: var(--color-primary);
+  --terminal-amber: var(--color-amber);
+  --terminal-dim:   var(--color-primary-deep);
+  --font-orbitron:  var(--font-orbitron);
+  --font-cinzel:    var(--font-cinzel);
 }
 
 /* Custom Scrollbar */
@@ -16,29 +46,29 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #050505;
+  background: var(--color-base);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #22d3ee40;
+  background: color-mix(in srgb, var(--color-primary) 25%, transparent);
   border-radius: 3px;
   transition: all 0.3s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #22d3ee;
-  box-shadow: 0 0 10px #22d3ee60;
+  background: var(--color-primary);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--color-primary) 38%, transparent);
 }
 
 body {
-  background-color: #050505;
-  color: #e0e0e0;
+  background-color: var(--color-base);
+  color: var(--color-text);
   overflow-x: hidden;
 }
 
 /* Glass-morphism Panel */
 .glass-panel {
-  background: rgba(24, 24, 27, 0.4);
+  background: color-mix(in srgb, var(--color-surface) 40%, transparent);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -50,8 +80,8 @@ body {
 }
 
 .glow-hover:hover {
-  border-color: #22d3ee60;
-  box-shadow: 0 0 30px rgba(34, 211, 238, 0.1);
+  border-color: color-mix(in srgb, var(--color-primary) 38%, transparent);
+  box-shadow: 0 0 30px color-mix(in srgb, var(--color-primary) 10%, transparent);
 }
 
 /* Reveal animation initial state */
@@ -71,13 +101,13 @@ body {
 }
 
 .anime-title {
-  font-family: var(--font-cinzel);
+  font-family: var(--font-display);
   letter-spacing: 0.1em;
   font-weight: 800;
 }
 
 .hud-text {
-  font-family: var(--font-orbitron);
+  font-family: var(--font-hud);
   letter-spacing: 0.05em;
 }
 

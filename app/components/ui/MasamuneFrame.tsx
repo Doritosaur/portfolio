@@ -67,31 +67,31 @@ const MasamuneFrame: React.FC<MasamuneFrameProps> = ({ children, title, classNam
         <div ref={frameRef} className={`relative ${className}`} onMouseEnter={handleMouseEnter}>
             {/* Top Bar with Title */}
             <div className="flex items-end mb-0">
-                <div className="bg-zinc-800 text-zinc-100 px-4 py-1.5 text-xs font-bold font-mono tracking-widest clip-path-slant relative z-10">
+                <div className="bg-surface-mid text-text-bright px-4 py-1.5 text-xs font-bold font-mono tracking-widest clip-path-slant relative z-10">
                     {title}
                 </div>
-                <div className="h-[2px] bg-zinc-800 flex-grow mb-[2px] relative origin-left animate-grow-width">
+                <div className="h-[2px] bg-surface-mid flex-grow mb-[2px] relative origin-left animate-grow-width">
                     <div className="absolute right-0 bottom-0 h-1 w-12 bg-[var(--terminal-green)]" />
                 </div>
-                <div className="text-[10px] font-mono text-zinc-600 px-2 mb-1">
+                <div className="text-[10px] font-mono text-text-faint px-2 mb-1">
                     S/N: {serial}
                 </div>
             </div>
 
             {/* Main Content Container */}
-            <div className="main-container relative border-x-2 md:border-x-4 border-b-2 md:border-b-4 border-zinc-900 bg-zinc-900/30 backdrop-blur-sm p-4 md:p-8 opacity-0 transition-all duration-300 hover:border-zinc-700">
+            <div className="main-container relative border-x-2 md:border-x-4 border-b-2 md:border-b-4 border-surface bg-surface/30 backdrop-blur-sm p-4 md:p-8 opacity-0 transition-all duration-300 hover:border-surface-up">
                 {/* Corner Bolts */}
-                <div className="corner-bolt absolute -top-[6px] -left-[6px] w-6 h-6 border-t-2 border-l-2 border-zinc-600 bg-zinc-950 z-20 flex items-center justify-center transition-colors">
-                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-500 shadow-inner" />
+                <div className="corner-bolt absolute -top-[6px] -left-[6px] w-6 h-6 border-t-2 border-l-2 border-surface-up bg-surface-dim z-20 flex items-center justify-center transition-colors">
+                    <div className="w-1.5 h-1.5 rounded-full bg-text-dim shadow-inner" />
                 </div>
-                <div className="corner-bolt absolute -top-[6px] -right-[6px] w-6 h-6 border-t-2 border-r-2 border-zinc-600 bg-zinc-950 z-20 flex items-center justify-center transition-colors">
-                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-500 shadow-inner" />
+                <div className="corner-bolt absolute -top-[6px] -right-[6px] w-6 h-6 border-t-2 border-r-2 border-surface-up bg-surface-dim z-20 flex items-center justify-center transition-colors">
+                    <div className="w-1.5 h-1.5 rounded-full bg-text-dim shadow-inner" />
                 </div>
-                <div className="corner-bolt absolute -bottom-[6px] -left-[6px] w-6 h-6 border-b-2 border-l-2 border-zinc-600 bg-zinc-950 z-20 flex items-center justify-center transition-colors">
-                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-500 shadow-inner" />
+                <div className="corner-bolt absolute -bottom-[6px] -left-[6px] w-6 h-6 border-b-2 border-l-2 border-surface-up bg-surface-dim z-20 flex items-center justify-center transition-colors">
+                    <div className="w-1.5 h-1.5 rounded-full bg-text-dim shadow-inner" />
                 </div>
-                <div className="corner-bolt absolute -bottom-[6px] -right-[6px] w-6 h-6 border-b-2 border-r-2 border-zinc-600 bg-zinc-950 z-20 flex items-center justify-center transition-colors">
-                    <div className="w-1.5 h-1.5 rounded-full bg-zinc-500 shadow-inner" />
+                <div className="corner-bolt absolute -bottom-[6px] -right-[6px] w-6 h-6 border-b-2 border-r-2 border-surface-up bg-surface-dim z-20 flex items-center justify-center transition-colors">
+                    <div className="w-1.5 h-1.5 rounded-full bg-text-dim shadow-inner" />
                 </div>
 
                 {/* Technical Markings */}
@@ -112,7 +112,7 @@ const MasamuneFrame: React.FC<MasamuneFrameProps> = ({ children, title, classNam
             {/* Bottom Tag */}
             <div className="flex justify-between items-start mt-1">
                 <div className="w-32 h-1 bg-zinc-800 clip-path-slant-reverse" />
-                <div className="text-[9px] text-zinc-700 font-mono tracking-[0.2em] uppercase">
+                <div className="text-[9px] text-text-faint/50 font-mono tracking-[0.2em] uppercase">
                     Industrial Standard // 2026
                 </div>
             </div>

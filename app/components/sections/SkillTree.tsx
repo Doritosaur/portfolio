@@ -47,17 +47,17 @@ const SkillTree: React.FC = () => {
                             onClick={() => setSelectedIndex(index)}
                             className={`timeline-tab relative px-4 py-3 font-mono text-xs transition-all border-b-2 -mb-[2px]
                                 ${isSelected
-                                    ? 'text-cyan-400 border-cyan-400 bg-cyan-500/5'
-                                    : 'text-zinc-500 border-transparent hover:text-zinc-300 hover:bg-zinc-900/30'
+                                    ? 'text-primary border-primary bg-primary/5'
+                                    : 'text-text-dim border-transparent hover:text-text-muted hover:bg-surface/30'
                                 }
                             `}
                         >
                             <span className="font-bold">{mission.company}</span>
-                            <span className="hidden sm:inline text-zinc-600 ml-2">
+                            <span className="hidden sm:inline text-text-faint ml-2">
                                 {mission.year.split(' - ')[1]}
                             </span>
                             {isActive && (
-                                <span className="absolute top-2 right-2 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse" />
+                                <span className="absolute top-2 right-2 w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
                             )}
                         </button>
                     );
@@ -65,33 +65,33 @@ const SkillTree: React.FC = () => {
             </div>
 
             {/* Details Panel */}
-            <div className="details-panel bg-zinc-900/30 border border-t-0 border-zinc-800 p-6">
+            <div className="details-panel bg-surface/30 border border-t-0 border-surface-mid p-6">
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
                     <div>
                         <div className="flex items-center gap-3 mb-2">
-                            <h3 className="text-xl font-bold text-zinc-100 font-mono">
+                            <h3 className="text-xl font-bold text-text-bright font-mono">
                                 {selectedMission.role.replace('_', ' ')}
                             </h3>
                             <span className={`px-2 py-0.5 text-[10px] font-mono border
                                 ${selectedMission.status === 'ACTIVE' || selectedMission.status === 'ROOT_ACCESS'
-                                    ? 'text-cyan-400 border-cyan-400/50'
-                                    : 'text-zinc-500 border-zinc-700'
+                                    ? 'text-primary border-primary/50'
+                                    : 'text-text-dim border-surface-up'
                                 }
                             `}>
                                 {selectedMission.status}
                             </span>
                         </div>
-                        <div className="text-sm text-cyan-500 font-mono">
+                        <div className="text-sm text-primary-dim font-mono">
                             @{selectedMission.company}
                         </div>
                     </div>
 
-                    <div className="text-xs text-zinc-500 font-mono bg-zinc-900 px-3 py-2 border border-zinc-800">
-                        <span className="text-zinc-600">TIMELINE:</span> {selectedMission.year}
+                    <div className="text-xs text-text-dim font-mono bg-surface px-3 py-2 border border-surface-mid">
+                        <span className="text-text-faint">TIMELINE:</span> {selectedMission.year}
                     </div>
                 </div>
 
-                <p className="text-sm text-zinc-400 leading-relaxed max-w-3xl border-l-2 border-cyan-500/30 pl-4 font-mono">
+                <p className="text-sm text-text-muted leading-relaxed max-w-3xl border-l-2 border-primary-dim/30 pl-4 font-mono">
                     {selectedMission.description}
                 </p>
 
@@ -102,8 +102,8 @@ const SkillTree: React.FC = () => {
                             key={i}
                             onClick={() => setSelectedIndex(i)}
                             className={`h-1 transition-all ${i === selectedIndex
-                                ? 'w-8 bg-cyan-400'
-                                : 'w-4 bg-zinc-700 hover:bg-zinc-600'
+                                ? 'w-8 bg-primary'
+                                : 'w-4 bg-surface-up hover:bg-surface-mid'
                                 }`}
                         />
                     ))}

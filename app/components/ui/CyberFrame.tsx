@@ -38,8 +38,8 @@ const CyberFrame: React.FC<CyberFrameProps> = ({ children, label, className, ...
         <div 
             ref={frameRef}
             onMouseEnter={handleMouseEnter}
-            className={`relative border border-zinc-800 bg-zinc-900/40 backdrop-blur-sm p-4 
-                transition-all duration-300 hover:border-cyan-500/50
+            className={`relative border border-surface-mid bg-surface/40 backdrop-blur-sm p-4 
+                transition-all duration-300 hover:border-primary/50
                 ${className}`} 
             {...props}
         >
@@ -51,7 +51,7 @@ const CyberFrame: React.FC<CyberFrameProps> = ({ children, label, className, ...
 
             {/* Label */}
             {label && (
-                <div className="absolute -top-3 left-6 bg-[#050505] px-2 text-[10px] text-zinc-500 tracking-widest uppercase border border-zinc-800 transition-colors hover:text-cyan-500/70">
+                <div className="absolute -top-3 left-6 bg-base px-2 text-[10px] text-text-dim tracking-widest uppercase border border-surface-mid transition-colors hover:text-primary/70">
                     {label}
                 </div>
             )}

@@ -47,7 +47,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen p-4 md:p-8 text-zinc-300 relative bg-[#050505] selection:bg-[var(--terminal-green)] selection:text-black">
+    <main className="min-h-screen p-4 md:p-8 text-text relative bg-base selection:bg-primary selection:text-black">
 
       <div className="fixed inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />

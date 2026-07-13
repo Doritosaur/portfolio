@@ -70,10 +70,10 @@ const SystemArsenal: React.FC = () => {
     };
 
     return (
-        <section ref={sectionRef} className="border border-zinc-800 bg-zinc-900/30 p-6 mb-12 glass-panel glow-hover">
+        <section ref={sectionRef} className="border border-surface-mid bg-surface/30 p-6 mb-12 glass-panel glow-hover">
             <div className="arsenal-header flex items-center gap-3 mb-6 opacity-0">
-                <div className="w-1.5 h-1.5 bg-cyan-500 animate-pulse" />
-                <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-widest font-mono">
+                <div className="w-1.5 h-1.5 bg-primary-dim animate-pulse" />
+                <h3 className="text-xs font-bold text-text-dim uppercase tracking-widest font-mono">
                     Skills & Technology
                 </h3>
             </div>
@@ -81,7 +81,7 @@ const SystemArsenal: React.FC = () => {
             <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
                 {arsenal.map((group, index) => (
                     <div key={index} className="skill-card opacity-0">
-                        <div className="text-[10px] text-cyan-500 font-mono uppercase tracking-widest mb-3 border-b border-zinc-800 pb-2">
+                        <div className="text-[10px] text-primary-dim font-mono uppercase tracking-widest mb-3 border-b border-surface-mid pb-2">
                             {group.category.replace('_', ' & ')}
                         </div>
                         <div className="flex flex-wrap gap-2">
@@ -90,7 +90,7 @@ const SystemArsenal: React.FC = () => {
                                     key={i}
                                     onMouseEnter={handleChipHover}
                                     onMouseLeave={handleChipLeave}
-                                    className="tech-chip px-2 py-1 text-xs text-zinc-300 bg-zinc-900 border border-zinc-700 cursor-default transition-colors"
+                                    className="tech-chip px-2 py-1 text-xs text-text-muted bg-surface border border-surface-up cursor-default transition-colors"
                                 >
                                     {item}
                                 </span>

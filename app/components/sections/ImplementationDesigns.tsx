@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from "react";
-import AnimatedText from "../ui/AnimatedText";
 import CyberFrame from "../ui/CyberFrame";
 
 import { useContentStore } from "../../store/contentStore";
@@ -30,10 +29,10 @@ const ImplementationDesigns: React.FC = () => {
     return (
         <section className="mb-24">
             <div className="flex items-center gap-2 mb-8">
-                <div className="w-2 h-2 bg-cyan-400" />
-                <h3 className="text-xs tracking-[0.2em] text-zinc-500 uppercase">
-                    <AnimatedText delay={1200}>Schematics // Blueprints</AnimatedText>
-                </h3>
+                <div className="w-2 h-2 bg-primary" />
+                <h2 className="text-sm font-bold text-text-muted uppercase tracking-[0.2em] font-mono">
+                    Schematics // Blueprints
+                </h2>
             </div>
 
             <div
@@ -45,7 +44,7 @@ const ImplementationDesigns: React.FC = () => {
                     <div key={i} className="min-w-[300px] md:min-w-[350px] lg:min-w-0 snap-center">
                         <CyberFrame
                             label={`SCHEMATIC_0${i + 1}`}
-                            className="h-[400px] flex flex-col justify-between border-cyan-900/50 bg-cyan-950/20 hover:border-cyan-400 transition-colors group cursor-pointer relative overflow-hidden"
+                            className="h-[400px] flex flex-col justify-between border-primary-deep/50 bg-primary-bg/20 hover:border-primary transition-colors group cursor-pointer relative overflow-hidden"
                         >
                             <div
                                 className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity bg-cover bg-center pointer-events-none mix-blend-luminosity"
@@ -55,20 +54,20 @@ const ImplementationDesigns: React.FC = () => {
                             <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,255,0.05)_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none" />
 
                             <div className="p-4 relative z-10">
-                                <h4 className="text-xl font-bold text-cyan-100 font-orbitron tracking-wider mb-1 mt-32">{bp.title}</h4>
-                                <p className="text-[10px] text-cyan-400 uppercase tracking-widest mb-4">{bp.subtitle}</p>
-                                <p className="text-xs text-zinc-400 leading-relaxed font-mono border-l-2 border-cyan-800 pl-3">
+                                <h4 className="text-xl font-bold text-text-bright font-hud tracking-wider mb-1 mt-32 group-hover:text-primary transition-colors">{bp.title}</h4>
+                                <p className="text-[10px] text-primary uppercase tracking-widest mb-4">{bp.subtitle}</p>
+                                <p className="text-xs text-text-muted leading-relaxed font-mono border-l-2 border-primary-deep pl-3">
                                     {bp.description}
                                 </p>
                             </div>
 
-                            <div className="border-t border-cyan-900/50 p-4 flex justify-between items-center bg-cyan-950/20">
-                                <span className="text-[9px] text-cyan-600 font-orbitron">REV. 2.4.1</span>
+                            <div className="border-t border-primary-deep/50 p-4 flex justify-between items-center bg-primary-bg/20">
+                                <span className="text-[9px] text-primary-muted font-hud">REV. 2.4.1</span>
                                 <a
                                     href={bp.link}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-[10px] text-cyan-400 hover:text-cyan-200 border border-cyan-800 hover:border-cyan-400 px-3 py-1 transition-colors uppercase"
+                                    className="text-[10px] text-primary hover:text-text-bright border border-primary-deep hover:border-primary px-3 py-1 transition-colors uppercase"
                                 >
                                     View_Source
                                 </a>
@@ -82,7 +81,7 @@ const ImplementationDesigns: React.FC = () => {
                 {blueprints.map((_, i) => (
                     <div 
                         key={i} 
-                        className={`flex-1 transition-colors ${i === activeIndex ? 'bg-cyan-600' : 'bg-zinc-800'}`} 
+                        className={`flex-1 transition-colors ${i === activeIndex ? 'bg-primary-dim' : 'bg-surface-mid'}`} 
                     />
                 ))}
             </div>

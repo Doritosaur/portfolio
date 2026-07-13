@@ -76,12 +76,12 @@ const FeaturedWork: React.FC = () => {
             {/* Section Header */}
             <div ref={headerRef} className="flex items-center justify-between mb-8 opacity-0">
                 <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 bg-cyan-400 animate-pulse" />
-                    <h2 className="text-sm font-bold text-zinc-300 uppercase tracking-[0.2em] font-mono">
+                    <div className="w-2 h-2 bg-primary animate-pulse" />
+                    <h2 className="text-sm font-bold text-text-muted uppercase tracking-[0.2em] font-mono">
                         Projects
                     </h2>
                 </div>
-                <div className="text-xs font-mono text-zinc-600">
+                <div className="text-xs font-mono text-text-faint">
                     {projects.length} MODULES DEPLOYED
                 </div>
             </div>
@@ -96,8 +96,8 @@ const FeaturedWork: React.FC = () => {
                         rel="noopener noreferrer"
                         onMouseEnter={handleCardHover}
                         onMouseLeave={handleCardLeave}
-                        className="group relative bg-zinc-900/40 backdrop-blur-sm border border-zinc-800 
-                            hover:border-cyan-500/40 overflow-hidden cursor-pointer opacity-0 block"
+                        className="group relative bg-surface/40 backdrop-blur-sm border border-surface-mid 
+                            hover:border-primary/40 overflow-hidden cursor-pointer opacity-0 block"
                     >
                         {/* Project Image */}
                         <div className="relative h-48 overflow-hidden">
@@ -111,16 +111,16 @@ const FeaturedWork: React.FC = () => {
                                     />
                                 </div>
                             ) : (
-                                <div className="absolute inset-0 bg-zinc-800 flex items-center justify-center">
-                                    <span className="text-4xl font-mono text-zinc-700">{project.id}</span>
+                                <div className="absolute inset-0 bg-surface-mid flex items-center justify-center">
+                                    <span className="text-4xl font-mono text-surface-up">{project.id}</span>
                                 </div>
                             )}
                             
                             {/* Gradient Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/50 to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-surface-dim via-surface-dim/50 to-transparent" />
                             
                             {/* Year Badge */}
-                            <div className="absolute top-3 right-3 px-2 py-1 bg-zinc-950/80 border border-zinc-700 text-[10px] font-mono text-zinc-500">
+                            <div className="absolute top-3 right-3 px-2 py-1 bg-surface-dim/80 border border-surface-up text-[10px] font-mono text-text-dim">
                                 {project.year}
                             </div>
                         </div>
@@ -129,25 +129,25 @@ const FeaturedWork: React.FC = () => {
                         <div className="p-5">
                             {/* ID and Title */}
                             <div className="flex items-baseline gap-2 mb-2">
-                                <span className="text-[10px] font-mono text-zinc-600">{project.id} //</span>
-                                <h3 className="text-lg font-bold text-zinc-200 group-hover:text-cyan-400 transition-colors font-mono tracking-tight">
+                                <span className="text-[10px] font-mono text-text-faint">{project.id} //</span>
+                                <h3 className="text-lg font-bold text-text group-hover:text-primary transition-colors font-mono tracking-tight">
                                     {project.title}
                                 </h3>
                             </div>
 
                             {/* Description */}
-                            <p className="text-sm text-zinc-500 leading-relaxed mb-4 group-hover:text-zinc-400 transition-colors">
+                            <p className="text-sm text-text-dim leading-relaxed mb-4 group-hover:text-text-muted transition-colors">
                                 {project.longDescription}
                             </p>
 
                             {/* Tags */}
-                            <div className="flex flex-wrap gap-2 pt-3 border-t border-zinc-800">
+                            <div className="flex flex-wrap gap-2 pt-3 border-t border-surface-mid">
                                 {project.tags.map((tag, i) => (
                                     <span 
                                         key={i}
-                                        className="text-[10px] font-mono text-zinc-600 bg-zinc-900/80 
-                                            px-2 py-1 border border-zinc-800 group-hover:border-cyan-500/30 
-                                            group-hover:text-cyan-500/70 transition-all"
+                                        className="text-[10px] font-mono text-text-faint bg-surface/80 
+                                        px-2 py-1 border border-surface-mid group-hover:border-primary/30 
+                                        group-hover:text-primary-muted/70 transition-all"
                                     >
                                         {tag}
                                     </span>
@@ -156,10 +156,10 @@ const FeaturedWork: React.FC = () => {
                         </div>
 
                         {/* Hover Corner Accents */}
-                        <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-transparent group-hover:border-cyan-500/50 transition-colors" />
-                        <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-transparent group-hover:border-cyan-500/50 transition-colors" />
-                        <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-transparent group-hover:border-cyan-500/50 transition-colors" />
-                        <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-transparent group-hover:border-cyan-500/50 transition-colors" />
+                        <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-transparent group-hover:border-primary/50 transition-colors" />
+                        <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-transparent group-hover:border-primary/50 transition-colors" />
+                        <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-transparent group-hover:border-primary/50 transition-colors" />
+                        <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-transparent group-hover:border-primary/50 transition-colors" />
                     </a>
                 ))}
             </div>
