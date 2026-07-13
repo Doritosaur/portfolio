@@ -72,13 +72,13 @@ export default function Home() {
                 <div className="absolute inset-0 bg-cyan-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <img src="/icons/social_0.png" alt="X" className="relative w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
               </a>
-              <a href="https://www.linkedin.com/in/aman-adhikari-0457504a/" target="_blank" rel="noopener noreferrer" className="group relative">
+              <a href="https://www.linkedin.com/in/amanadhikari31" target="_blank" rel="noopener noreferrer" className="group relative">
                 <div className="absolute inset-0 bg-cyan-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <img src="/icons/social_1.png" alt="GH" className="relative w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
+                <img src="/icons/social_1.png" alt="LinkedIn" className="relative w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
               </a>
               <a href="https://github.com/Doritosaur" target="_blank" rel="noopener noreferrer" className="group relative">
                 <div className="absolute inset-0 bg-cyan-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <img src="/icons/social_2.png" alt="LI" className="relative w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
+                <img src="/icons/social_2.png" alt="Github" className="relative w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
               </a>
             </nav>
           </header>
