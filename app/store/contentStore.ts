@@ -124,7 +124,7 @@ export const useContentStore = create<ContentState>(() => ({
             tags: ["React", "TypeScript", "Data Visualization", "Charting"],
             year: "2026",
             image: "/project-chart.png",
-            link: "https://plotcraft-c49c4kynw-amanadhikari2-3531s-projects.vercel.app/"
+            link: "https://plotcraft-orcin.vercel.app/"
         },
         {
             id: "PROJ_02",
