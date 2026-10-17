@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
-/* Theme tokens: light by default, dark via [data-theme="dark"] on <html> */
+/* Theme tokens: dark is the default (data-theme="dark" on <html>); light is the alternate */
 :root {
   --bg: #ffffff;
   --fg: #2b2b2b;
   --muted: #8a8a8a;
   --rule: #e6e6e6;
   --img-bg: #f4f4f4;
+  --lav: #f9f6ff;
 }
 
 :root[data-theme="dark"] {
@@ -15,6 +16,7 @@
   --muted: #8c8c8c;
   --rule: #2a2a2a;
   --img-bg: #1c1c1c;
+  --lav: #211b33;
   color-scheme: dark;
 }
 
@@ -24,6 +26,7 @@
   --color-muted: var(--muted);
   --color-rule: var(--rule);
   --color-img: var(--img-bg);
+  --color-lav: var(--lav);
   --font-sans: var(--font-karla), ui-sans-serif, system-ui, sans-serif;
 }
 

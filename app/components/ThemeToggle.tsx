@@ -14,7 +14,7 @@ const subscribe = (cb: () => void) => {
 };
 
 const getTheme = (): Theme =>
-  document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+  document.documentElement.dataset.theme === "light" ? "light" : "dark";
 
 const applyTheme = (next: Theme) => {
   document.documentElement.dataset.theme = next;
@@ -24,7 +24,7 @@ const applyTheme = (next: Theme) => {
 };
 
 export default function ThemeToggle() {
-  const theme = useSyncExternalStore<Theme>(subscribe, getTheme, () => "light");
+  const theme = useSyncExternalStore<Theme>(subscribe, getTheme, () => "dark");
 
   const option = (value: Theme, label: string) => (
     <button

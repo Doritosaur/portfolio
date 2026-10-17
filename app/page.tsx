@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import Image from "next/image";
+import ProjectCard from "./components/ProjectCard";
 import Sidebar from "./components/Sidebar";
 import { hero, projects, roles, skills } from "./content";
 
@@ -23,38 +23,9 @@ export default function Home() {
         </p>
 
         <section className="mt-8 grid gap-5 sm:grid-cols-2">
-          {projects.map((p) => {
-            const card = (
-              <>
-                <div className="relative aspect-[4/5] overflow-hidden bg-img">
-                  {p.image && (
-                    <Image
-                      src={p.image}
-                      alt={p.title}
-                      fill
-                      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  )}
-                  <div className="absolute inset-0 flex flex-col justify-end gap-3 bg-bg/90 p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
-                    <span className="font-semibold">{p.title}</span>
-                    <p>{p.longDescription}</p>
-                    {p.tags.length > 0 && <p className="text-muted">{p.tags.join(", ")}</p>}
-                  </div>
-                </div>
-              </>
-            );
-            const className = "group block scroll-mt-12";
-            return p.link ? (
-              <a key={p.id} id={p.id} href={p.link} target="_blank" rel="noopener noreferrer" className={className}>
-                {card}
-              </a>
-            ) : (
-              <div key={p.id} id={p.id} className={className}>
-                {card}
-              </div>
-            );
-          })}
+          {projects.map((p) => (
+            <ProjectCard key={p.id} project={p} />
+          ))}
         </section>
 
         <div className="mt-10 max-w-3xl space-y-6">

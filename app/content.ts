@@ -96,25 +96,30 @@ export const skills: SkillGroup[] = [
 
 export const projects: Project[] = [
   {
-    id: "project-1",
-    title: "Project 1",
-    description: "Placeholder description",
-    longDescription: "Placeholder for an upcoming project.",
-    tags: [],
+    id: "xplot",
+    title: "Xplot",
+    description: "High-performance charting library",
+    longDescription:
+      "Xplot delivers columnar data handling, incredible rendering speed, and simplified chart configuration — no matter the size of your dataset. Backed by typed arrays and automatic decimation, xplot makes drawing hundreds of thousands of points simpler than ever.",
+    tags: ["Charting", "Typed Arrays", "Decimation"],
+    link: "https://xplot-wf8j-iota.vercel.app/",
   },
   {
-    id: "project-2",
-    title: "Project 2",
-    description: "Placeholder description",
-    longDescription: "Placeholder for an upcoming project.",
-    tags: [],
+    id: "redline",
+    title: "Redline",
+    description: "Performance auditing for localhost and live URLs",
+    longDescription:
+      "Redline audits localhost and live URLs, ranks fixes by impact, and points to the source file or npm package responsible. Use it from the CLI, in CI, or straight from Claude.",
+    tags: ["CLI", "CI", "Performance"],
+    link: "https://redline-landing-sand.vercel.app/",
   },
   {
-    id: "project-3",
-    title: "Project 3",
-    description: "Placeholder description",
-    longDescription: "Placeholder for an upcoming project.",
+    id: "lumina",
+    title: "Lumina",
+    description: "Landing page for an AI-powered document product",
+    longDescription: "Lumina is a landing page for an AI-powered document product.",
     tags: [],
+    link: "https://landing-001-smoky.vercel.app/",
   },
   {
     id: "project-4",

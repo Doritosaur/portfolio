@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   icons: { icon: "/me.jpg" },
 };
 
-// Runs before paint so the saved theme never flashes. Light is the default.
-const themeScript = `try{var t=localStorage.getItem("theme");if(t==="dark")document.documentElement.dataset.theme="dark"}catch(e){}`;
+// Runs before paint so the saved theme never flashes. Dark is the default.
+const themeScript = `try{if(localStorage.getItem("theme")==="light")document.documentElement.dataset.theme="light"}catch(e){}`;
 
 export default function RootLayout({
   children,
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={karla.variable} suppressHydrationWarning>
+    <html lang="en" data-theme="dark" className={karla.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
