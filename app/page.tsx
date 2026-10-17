@@ -1,116 +1,125 @@
-"use client";
-import { useEffect, useRef } from "react";
-import { animate } from "animejs";
-import FeaturedWork from "./components/sections/FeaturedWork";
-import ImplementationDesigns from "./components/sections/ImplementationDesigns";
-import Footer from "./components/sections/Footer";
-import SkillTree from "./components/sections/SkillTree";
-import SystemArsenal from "./components/sections/SystemArsenal";
-import SystemStatus from "./components/ui/SystemStatus";
-import MasamuneFrame from "./components/ui/MasamuneFrame";
+import { Fragment } from "react";
+import Image from "next/image";
+import Sidebar from "./components/Sidebar";
+import { hero, projects, roles, skills } from "./content";
+
+const rule = "border-t border-rule";
+const item = `${rule} py-6 first:border-t-0 first:pt-0`;
 
 export default function Home() {
-  const observerRef = useRef<IntersectionObserver | null>(null);
-
-  useEffect(() => {
-    // Boot sequence - animate main container
-    animate('main > div', {
-      opacity: [0, 1],
-      translateY: [20, 0],
-      duration: 800,
-      easing: 'easeOutExpo'
-    });
-
-    // Scroll-triggered reveals
-    observerRef.current = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animate(entry.target, {
-            opacity: [0, 1],
-            translateY: [40, 0],
-            duration: 700,
-            easing: 'easeOutCubic'
-          });
-          entry.target.classList.add('revealed');
-          observerRef.current?.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
-    // Observe all sections for reveal
-    document.querySelectorAll('.reveal-section').forEach(el => {
-      (el as HTMLElement).style.opacity = '0';
-      observerRef.current?.observe(el);
-    });
-
-    return () => observerRef.current?.disconnect();
-  }, []);
-
   return (
-    <main className="min-h-screen p-4 md:p-8 text-text relative bg-base selection:bg-primary selection:text-black">
+    <div
+      id="top"
+      className="mx-auto flex max-w-[1400px] flex-col gap-10 px-6 py-10 lg:flex-row lg:gap-24 lg:px-12 lg:py-12"
+    >
+      <Sidebar />
 
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:40px_40px]" />
-      </div>
+      <main className="min-w-0 flex-1 pb-24">
+        <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
+          Hello! I’m Aman <span className="font-normal text-muted">(he/him)</span>
+        </h1>
+        <p className="mt-4 text-2xl leading-snug sm:text-3xl">
+          I’m a <span className="wavy">{hero.role.toLowerCase()}</span> based in {hero.location}.
+        </p>
 
-      <div className="relative z-10 flex flex-col lg:flex-row gap-8 max-w-[1800px] mx-auto">
-
-        <SystemStatus />
-
-        <div className="flex-grow flex flex-col gap-16 min-w-0 pt-4">
-
-          {/* Header */}
-          <header className="flex justify-between items-end border-b-2 border-zinc-800 pb-2">
-            <div>
-              <div className="text-[10px] text-zinc-500 font-mono tracking-widest">
-                PORTFOLIO_V1 // {new Date().getFullYear()}
+        <section className="mt-8 grid gap-5 sm:grid-cols-2">
+          {projects.map((p) => {
+            const card = (
+              <>
+                <div className="relative aspect-[4/5] overflow-hidden bg-img">
+                  {p.image && (
+                    <Image
+                      src={p.image}
+                      alt={p.title}
+                      fill
+                      sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  )}
+                  <div className="absolute inset-0 flex flex-col justify-end gap-3 bg-bg/90 p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+                    <span className="font-semibold">{p.title}</span>
+                    <p>{p.longDescription}</p>
+                    {p.tags.length > 0 && <p className="text-muted">{p.tags.join(", ")}</p>}
+                  </div>
+                </div>
+              </>
+            );
+            const className = "group block scroll-mt-12";
+            return p.link ? (
+              <a key={p.id} id={p.id} href={p.link} target="_blank" rel="noopener noreferrer" className={className}>
+                {card}
+              </a>
+            ) : (
+              <div key={p.id} id={p.id} className={className}>
+                {card}
               </div>
-            </div>
+            );
+          })}
+        </section>
 
-            <nav className="flex gap-6 items-center pb-1">
-              <a href="https://x.com/amanneox" target="_blank" rel="noopener noreferrer" className="group relative">
-                <div className="absolute inset-0 bg-cyan-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <img src="/icons/social_0.png" alt="X" className="relative w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
-              </a>
-              <a href="https://www.linkedin.com/in/amanadhikari31" target="_blank" rel="noopener noreferrer" className="group relative">
-                <div className="absolute inset-0 bg-cyan-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <img src="/icons/social_1.png" alt="LinkedIn" className="relative w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
-              </a>
-              <a href="https://github.com/Doritosaur" target="_blank" rel="noopener noreferrer" className="group relative">
-                <div className="absolute inset-0 bg-cyan-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <img src="/icons/social_2.png" alt="Github" className="relative w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
-              </a>
-            </nav>
-          </header>
-
-          {/* Projects Section - Full Width */}
-          <section id="work" className="reveal-section">
-            <FeaturedWork />
-          </section>
-
-          {/* Blueprints Section */}
-          <section id="blueprints" className="reveal-section">
-            <ImplementationDesigns />
-          </section>
-
-          {/* Experience Section */}
-          <section id="skills" className="reveal-section">
-            <MasamuneFrame title="CAREER_PATH // EXPERIENCE" serial="EXP-001" className="mb-0">
-              <SkillTree />
-            </MasamuneFrame>
-          </section>
-
-          {/* Skills Section */}
-          <section id="arsenal" className="reveal-section">
-            <SystemArsenal />
-          </section>
-
-          {/* Footer */}
-          <div className="reveal-section">
-            <Footer />
-          </div>
+        <div className="mt-10 max-w-3xl space-y-6">
+          <p>
+            <strong className="wavy font-semibold">Co-Founder &amp; Founding Engineer.</strong>{" "}
+            Built and shipped the core product from 0 to 1, owning architecture, engineering, and
+            key technical decisions as part of the founding team. Wore multiple hats across
+            product, infrastructure, and growth to take the company from idea to a working
+            platform.
+          </p>
+          <p>
+            Most of my work sits where data-heavy interfaces meet the systems behind them. At
+            Cryptk that meant a canvas-based charting library rendering 100K+ candles, a
+            WebSocket pipeline handling 500+ updates a second, and typed models for raw Ethereum
+            data. Before that I built analytics tooling at Ascendeum and a supply chain platform
+            for METRO at Infosys, including a 100+ component library shared across three teams.
+          </p>
+          <p>
+            Today I’m a <span className="wavy">full stack engineer</span> at SuperLaw, building
+            WebSocket-based chat interfaces for legal document workflows, wiring LLMs into case
+            ingestion for AI-powered legal research, and shipping the FastAPI services behind
+            document processing. I like owning a feature from the interface down to the backend.
+          </p>
         </div>
-      </div>
-    </main>
+
+        <section id="experience" className={`${rule} mt-12 scroll-mt-12 pt-10`}>
+          <h2 className="text-2xl font-semibold">Experience</h2>
+          <ul className="mt-6">
+            {roles.map((r) => (
+              <li key={r.company} className={item}>
+                <div>
+                  <span className="text-muted">{r.period}</span> {r.role},{" "}
+                  <span className="text-xl font-semibold">{r.company}</span>
+                </div>
+                <ul className="mt-2 max-w-3xl list-disc space-y-1 pl-5 text-muted marker:text-rule">
+                  {r.highlights.map((h) => (
+                    <li key={h}>{h}</li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="skills" className={`${rule} mt-6 scroll-mt-12 pt-10`}>
+          <h2 className="text-2xl font-semibold">Skills</h2>
+          <dl className="mt-4 grid grid-cols-[8rem_1fr] gap-x-6 gap-y-1">
+            {skills.map((g) => (
+              <Fragment key={g.category}>
+                <dt className="text-muted">{g.category}</dt>
+                <dd>{g.items.join(", ")}</dd>
+              </Fragment>
+            ))}
+          </dl>
+        </section>
+
+        <footer className={`${rule} mt-12 flex flex-wrap gap-x-6 gap-y-1 pt-6 text-muted`}>
+          <span>
+            © {new Date().getFullYear()} {hero.name}
+          </span>
+          <a href="/LICENSE" className="hover:text-fg">
+            MIT License
+          </a>
+        </footer>
+      </main>
+    </div>
   );
 }

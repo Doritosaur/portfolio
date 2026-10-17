@@ -1,228 +1,97 @@
 @import "tailwindcss";
 
-/* ─── Theme Tokens (Tailwind v4 @theme) ───────────────────────────── */
-@theme {
-  /* Colors */
-  --color-primary:       #22d3ee;   /* cyan-400 — main accent */
-  --color-primary-dim:   #06b6d4;   /* cyan-500 */
-  --color-primary-muted: #0891b2;   /* cyan-600 */
-  --color-primary-deep:  #164e63;   /* cyan-900 */
-  --color-primary-bg:    #083344;   /* cyan-950 */
-
-  --color-surface:       #18181b;   /* zinc-900 */
-  --color-surface-dim:   #09090b;   /* zinc-950 */
-  --color-surface-mid:   #27272a;   /* zinc-800 */
-  --color-surface-up:    #3f3f46;   /* zinc-700 */
-
-  --color-base:          #050505;   /* near-black page bg */
-
-  --color-text:          #e4e4e7;   /* zinc-200 */
-  --color-text-muted:    #a1a1aa;   /* zinc-400 */
-  --color-text-dim:      #71717a;   /* zinc-500 */
-  --color-text-faint:    #52525b;   /* zinc-600 */
-  --color-text-bright:   #f4f4f5;   /* zinc-100 */
-
-  --color-amber:         #ffb000;   /* terminal amber */
-
-  /* Fonts */
-  --font-hud:     var(--font-orbitron), monospace;   /* HUD / tech labels */
-  --font-display: var(--font-cinzel), serif;         /* Anime title display */
-  --font-mono:    ui-monospace, monospace;           /* code / terminal */
-}
-
-/* ─── CSS variables (kept for legacy var() references) ────────────── */
+/* Theme tokens: light by default, dark via [data-theme="dark"] on <html> */
 :root {
-  --terminal-green: var(--color-primary);
-  --terminal-amber: var(--color-amber);
-  --terminal-dim:   var(--color-primary-deep);
-  --font-orbitron:  var(--font-orbitron);
-  --font-cinzel:    var(--font-cinzel);
+  --bg: #ffffff;
+  --fg: #2b2b2b;
+  --muted: #8a8a8a;
+  --rule: #e6e6e6;
+  --img-bg: #f4f4f4;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+:root[data-theme="dark"] {
+  --bg: #121212;
+  --fg: #e6e6e6;
+  --muted: #8c8c8c;
+  --rule: #2a2a2a;
+  --img-bg: #1c1c1c;
+  color-scheme: dark;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--color-base);
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-img: var(--img-bg);
+  --font-sans: var(--font-karla), ui-sans-serif, system-ui, sans-serif;
 }
 
-::-webkit-scrollbar-thumb {
-  background: color-mix(in srgb, var(--color-primary) 25%, transparent);
-  border-radius: 3px;
-  transition: all 0.3s;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary);
-  box-shadow: 0 0 10px color-mix(in srgb, var(--color-primary) 38%, transparent);
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: var(--color-base);
-  color: var(--color-text);
-  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Glass-morphism Panel */
-.glass-panel {
-  background: color-mix(in srgb, var(--color-surface) 40%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+::selection {
+  background: var(--fg);
+  color: var(--bg);
 }
 
-/* Enhanced glow effect */
-.glow-hover {
-  transition: all 0.3s ease;
+/* Soft lavender wave: gentle amplitude, set by the SVG tile (22x6) */
+.wavy,
+.nav-link {
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='6' viewBox='0 0 22 6'%3E%3Cpath d='M0 3 Q5.5 0 11 3 T22 3' fill='none' stroke='%23d9c9ee' stroke-width='2'/%3E%3C/svg%3E");
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
-.glow-hover:hover {
-  border-color: color-mix(in srgb, var(--color-primary) 38%, transparent);
-  box-shadow: 0 0 30px color-mix(in srgb, var(--color-primary) 10%, transparent);
+.wavy {
+  background: var(--wave) repeat-x left bottom / 22px 6px;
+  padding-bottom: 0.18em;
 }
 
-/* Reveal animation initial state */
-.reveal-on-scroll {
-  opacity: 0;
-  transform: translateY(30px);
+/* Sidebar links: nudge right, brighten, and reveal the wave on hover */
+.nav-link {
+  display: inline-block;
+  color: var(--muted);
+  padding-bottom: 0.18em;
+  background: var(--wave) repeat-x left bottom / 22px 6px;
+  background-size: 22px 0;
+  transition: color 0.15s, transform 0.2s ease, background-size 0.2s ease;
 }
 
-.reveal-on-scroll.revealed {
-  opacity: 1;
-  transform: translateY(0);
+.nav-link:hover,
+.nav-link:focus-visible {
+  color: var(--fg);
+  transform: translateX(6px);
+  background-size: 22px 6px;
 }
 
-/* Utilities */
-.text-glow {
-  text-shadow: 0 0 10px var(--terminal-green), 0 0 20px var(--terminal-green);
+:root[data-theme="dark"] .wavy,
+:root[data-theme="dark"] .nav-link {
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='6' viewBox='0 0 22 6'%3E%3Cpath d='M0 3 Q5.5 0 11 3 T22 3' fill='none' stroke='%23826fa6' stroke-width='2'/%3E%3C/svg%3E");
 }
 
-.anime-title {
-  font-family: var(--font-display);
-  letter-spacing: 0.1em;
-  font-weight: 800;
+.prose-link {
+  color: var(--muted);
+  border-bottom: 1px solid var(--rule);
+  transition: color 0.15s, border-color 0.15s;
 }
 
-.hud-text {
-  font-family: var(--font-hud);
-  letter-spacing: 0.05em;
+.prose-link:hover {
+  color: var(--fg);
+  border-color: var(--fg);
 }
 
-/* Chromatic Aberration Animation */
-@keyframes chromatic {
-  0% {
-    text-shadow: 2px 0 0 red, -2px 0 0 blue;
-  }
-  25% {
-    text-shadow: 2px 2px 0 red, -2px -2px 0 blue;
-  }
-  50% {
-    text-shadow: -2px 0 0 red, 2px 0 0 blue;
-  }
-  75% {
-    text-shadow: -2px -2px 0 red, 2px 2px 0 blue;
-  }
-  100% {
-    text-shadow: 2px 0 0 red, -2px 0 0 blue;
-  }
-}
-
-.chromatic-text:hover {
-  animation: chromatic 0.5s infinite;
-}
-
-/* Radar Scan Animation */
-@keyframes radar-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-radar-spin {
-  animation: radar-spin 4s linear infinite;
-}
-
-/* CRT Scanline Overlay */
-.scanlines::before {
-  content: " ";
-  display: block;
-  position: fixed; /* Changed from absolute to fixed */
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: linear-gradient(
-      to bottom,
-      rgba(18, 16, 16, 0) 50%,
-      rgba(0, 0, 0, 0.25) 50%
-  );
-  background-size: 100% 4px;
-  z-index: 50; /* Lower z-index just in case, but keep above background */
-  pointer-events: none;
-  mix-blend-mode: overlay; /* Improved blend mode */
-}
-
-/* Subtle Flicker */
-.scanlines::after {
-  content: " ";
-  display: block;
-  position: fixed; /* Changed from absolute to fixed */
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(18, 16, 16, 0.1);
-  opacity: 0;
-  z-index: 50;
-  pointer-events: none;
-  animation: flicker 0.15s infinite;
-}
-
-@keyframes flicker {
-  0% { opacity: 0.02; }
-  50% { opacity: 0.05; }
-  100% { opacity: 0.02; }
-}
-
-@keyframes glitch {
-  0% {
-    transform: translate(0);
-  }
-  20% {
-    transform: translate(-2px, 2px);
-  }
-  40% {
-    transform: translate(-2px, -2px);
-  }
-  60% {
-    transform: translate(2px, 2px);
-  }
-  80% {
-    transform: translate(2px, -2px);
-  }
-  100% {
-    transform: translate(0);
-  }
-}
-
-.glitch-hover:hover {
-  animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-  color: var(--terminal-green);
-}
-
-/* Typewriter cursor */
-.typewriter-cursor::after {
-  content: '_';
-  animation: blink 1s step-end infinite;
-  color: var(--terminal-green);
-}
-
-@keyframes blink {
-  50% { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .nav-link { transition: none; transform: none !important; }
 }
