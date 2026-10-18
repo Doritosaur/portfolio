@@ -87,34 +87,36 @@ export const projects: Project[] = [
   {
     id: "xplot",
     title: "Xplot",
-    description: "High-performance charting library",
+    description: "Fast, small canvas charts for large datasets",
     longDescription:
-      "Xplot delivers columnar data handling, incredible rendering speed, and simplified chart configuration — no matter the size of your dataset. Backed by typed arrays and automatic decimation, xplot makes drawing hundreds of thousands of points simpler than ever.",
+      "Xplot is a charting library for numeric and time-series data that stays smooth with hundreds of thousands of points. It also ships an MCP server, so AI assistants can draw charts as images.",
     tags: ["Charting", "Typed Arrays", "Decimation"],
     link: "https://xplot-wf8j-iota.vercel.app/",
   },
   {
     id: "redline",
     title: "Redline",
-    description: "Performance auditing for localhost and live URLs",
+    description: "Frontend performance audits that tell you what to fix",
     longDescription:
-      "Redline audits localhost and live URLs, ranks fixes by impact, and points to the source file or npm package responsible. Use it from the CLI, in CI, or straight from Claude.",
+      "Redline audits any page, local or live, and ranks fixes by impact, pointing to the source file or npm package behind each one. It re-checks every change and fails CI on regressions.",
     tags: ["CLI", "CI", "Performance"],
     link: "https://redline-landing-sand.vercel.app/",
   },
   {
     id: "lumina",
     title: "Lumina",
-    description: "Landing page for an AI-powered document product",
-    longDescription: "Lumina is a landing page for an AI-powered document product.",
+    description: "Landing page for an AI documentation platform",
+    longDescription:
+      "A marketing site for Lumina, an AI-powered documentation platform that keeps docs in sync with your codebase. Built with React, TypeScript and Tailwind, with Lottie animations.",
     tags: [],
     link: "https://landing-001-smoky.vercel.app/",
   },
   {
     id: "meridian",
     title: "Meridian",
-    description: "Web project",
-    longDescription: "Meridian, a web project.",
+    description: "Real-time prediction market monitor on a world map",
+    longDescription:
+      "Meridian tracks Polymarket live and flags unusual activity, like large whale trades, volume spikes and regional surges, on an interactive world map. Alerts can also go straight to Discord.",
     tags: [],
     link: "https://meridian-steel-two.vercel.app/",
   },

@@ -119,8 +119,29 @@ export default function ProjectStack({ projects }: { projects: Project[] }) {
   return (
     <div ref={listRef} className="mt-6 flex flex-col gap-20">
       {projects.map((p) => (
-        <div key={p.id} id={p.id} className="h-[calc(100vh-5rem)] shrink-0 scroll-mt-12 [contain:layout_paint]">
-          <ProjectCard project={p} />
+        <div
+          key={p.id}
+          id={p.id}
+          className="flex h-[calc(100vh-5rem)] shrink-0 scroll-mt-12 flex-col gap-5 [contain:layout_paint] lg:flex-row lg:gap-10"
+        >
+          <div className="min-h-0 flex-1">
+            <ProjectCard project={p} />
+          </div>
+          <div className="shrink-0 overflow-y-auto lg:w-72 xl:w-96">
+            <h3 className="text-2xl font-semibold">{p.title}</h3>
+            <p className="mt-1 text-muted">{p.description}</p>
+            <p className="mt-4">{p.longDescription}</p>
+            {p.link && (
+              <a
+                href={p.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-block underline underline-offset-4 hover:text-muted"
+              >
+                Visit site ↗
+              </a>
+            )}
+          </div>
         </div>
       ))}
     </div>

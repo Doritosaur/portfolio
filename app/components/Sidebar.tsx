@@ -79,9 +79,6 @@ export default function Sidebar() {
       {/* Large screens: sticky rail */}
       <aside className="hidden lg:sticky lg:top-12 lg:block lg:max-h-[calc(100vh-6rem)] lg:w-40 lg:shrink-0 lg:self-start lg:overflow-y-auto">
         <nav aria-label="Sections" className="flex flex-col gap-7">
-          <a href="#top" className="font-semibold">
-            {hero.name}
-          </a>
           <Outline />
           <div className="border-t border-rule pt-5">
             <ThemeToggle />
