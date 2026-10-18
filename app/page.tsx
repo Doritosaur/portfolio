@@ -56,7 +56,7 @@ export default function Home() {
                   </h3>
                   <p className="text-muted">{r.period}</p>
                 </div>
-                <p className="mt-2 max-w-3xl">{r.summary}</p>
+                <p className="mt-2 max-w-3xl text-muted">{r.summary}</p>
               </li>
             ))}
           </ul>

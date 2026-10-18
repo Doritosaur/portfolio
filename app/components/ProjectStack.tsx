@@ -136,7 +136,7 @@ export default function ProjectStack({ projects }: { projects: Project[] }) {
                 href={p.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-block underline underline-offset-4 hover:text-muted"
+                className="nav-link mt-4"
               >
                 Visit site ↗
               </a>
