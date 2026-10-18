@@ -82,6 +82,7 @@ button:focus-visible {
   font-weight: 500;
 }
 
+.nav-link[aria-current="true"],
 .nav-link:hover,
 .nav-link:focus-visible {
   color: var(--fg);

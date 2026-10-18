@@ -1,4 +1,5 @@
 import { hero, projects } from "../content";
+import NavSpy from "./NavSpy";
 import ThemeToggle from "./ThemeToggle";
 
 type Item = { label: string; href: string; external?: boolean };
@@ -55,6 +56,7 @@ function Outline() {
 export default function Sidebar() {
   return (
     <>
+      <NavSpy projectIds={projects.map((p) => p.id)} />
       {/* Small screens: a one-line bar; the menu stays collapsed until opened */}
       <header className="lg:hidden">
         <div className="flex items-center justify-between gap-4">

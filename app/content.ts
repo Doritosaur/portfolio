@@ -118,4 +118,12 @@ export const projects: Project[] = [
     tags: [],
     link: "https://landing-001-smoky.vercel.app/",
   },
+  {
+    id: "meridian",
+    title: "Meridian",
+    description: "Web project",
+    longDescription: "Meridian, a web project.",
+    tags: [],
+    link: "https://meridian-steel-two.vercel.app/",
+  },
 ];

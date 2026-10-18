@@ -68,11 +68,11 @@ export default function ProjectCard({ project: p }: { project: Project }) {
 
   const className = "group block h-full scroll-mt-12";
   return p.link ? (
-    <a id={p.id} href={p.link} target="_blank" rel="noopener noreferrer" className={className}>
+    <a href={p.link} target="_blank" rel="noopener noreferrer" className={className}>
       {body}
     </a>
   ) : (
-    <div id={p.id} className={className}>
+    <div className={className}>
       {body}
     </div>
   );
