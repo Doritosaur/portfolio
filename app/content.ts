@@ -35,13 +35,12 @@ export const hero = {
 
 export const roles: Role[] = [
   {
-    period: "Feb 2026 – Present",
+    period: "Feb 2026 – Now",
     role: "Full Stack Engineer",
     company: "SuperLaw",
     highlights: [
-      "Building WebSocket-based chat interfaces for legal document workflows and integrating LLM models into case ingestion pipelines for AI-powered legal research.",
-      "Developed intuitive interfaces for document review, case management, and AI-assisted legal research, improving usability across complex workflows.",
-      "Built FastAPI backend services for document tooling, including file conversion, translation, and OpenAI-powered document processing workflows.",
+      "Built chat and document-review interfaces for legal work, with AI-assisted case research.",
+      "Built the backend services for file conversion, translation and AI document processing.",
     ],
   },
   {
@@ -49,9 +48,8 @@ export const roles: Role[] = [
     role: "Co-Founder / Frontend Engineer",
     company: "Cryptk",
     highlights: [
-      "Built custom charting library handling 100K+ candlestick renders with sub-100ms draw times using canvas-based rendering and quadtree spatial indexing for efficient zoom/pan operations on time-series OHLCV data.",
-      "Designed WebSocket ingestion pipeline processing 500+ price updates/sec; implemented middleware with message batching (50ms windows) and memoized selectors reducing re-renders.",
-      "Built data normalization layer parsing raw Ethereum RPC responses and DEX swap events into strongly typed domain models with schema validation.",
+      "Built a charting library that draws 100K+ candles in under 100ms.",
+      "Built a live price feed handling 500+ updates a second.",
     ],
   },
   {
@@ -59,8 +57,8 @@ export const roles: Role[] = [
     role: "Software Engineer / Frontend Engineer",
     company: "Ascendeum",
     highlights: [
-      "Built custom charting library for impression analytics; implemented interactive visualizations with custom controls and real-time data updates for ad performance metrics.",
-      "Developed ads impression and tracking tooling; integrated campaign tracking, budget management, and multi-dimensional filtering across 50+ client accounts.",
+      "Built an interactive charting library for ad analytics.",
+      "Built ad tracking and budget tools used across 50+ client accounts.",
     ],
   },
   {
@@ -68,9 +66,8 @@ export const roles: Role[] = [
     role: "System Engineer Specialist",
     company: "Infosys",
     highlights: [
-      "Developed supply chain platform for METRO serving 100+ clients; built reusable components library with 100+ components, eliminating duplicate UI code across 3 development teams.",
-      "Enhanced DHL client system handling inventory, orders, and shipment tracking for 10K+ daily operations; refactored code to TypeScript, significantly reducing bundle size.",
-      "Designed database schemas for shipment/inventory management; implemented migrations and indexing optimizations reducing query time from 300ms to 150ms across 5M+ records.",
+      "Built a supply chain platform for METRO, with a 100+ component library shared by 3 teams.",
+      "Improved the DHL shipment system (10K+ daily operations) and halved database query times.",
     ],
   },
 ];
@@ -120,12 +117,5 @@ export const projects: Project[] = [
     longDescription: "Lumina is a landing page for an AI-powered document product.",
     tags: [],
     link: "https://landing-001-smoky.vercel.app/",
-  },
-  {
-    id: "project-4",
-    title: "Project 4",
-    description: "Placeholder description",
-    longDescription: "Placeholder for an upcoming project.",
-    tags: [],
   },
 ];

@@ -3,18 +3,18 @@
 /* Theme tokens: dark is the default (data-theme="dark" on <html>); light is the alternate */
 :root {
   --bg: #ffffff;
-  --fg: #2b2b2b;
-  --muted: #8a8a8a;
-  --rule: #e6e6e6;
+  --fg: #171717;
+  --muted: #595959;
+  --rule: #bcbcbc;
   --img-bg: #f4f4f4;
   --lav: #f9f6ff;
 }
 
 :root[data-theme="dark"] {
   --bg: #121212;
-  --fg: #e6e6e6;
-  --muted: #8c8c8c;
-  --rule: #2a2a2a;
+  --fg: #f0f0f0;
+  --muted: #a8a8a8;
+  --rule: #444444;
   --img-bg: #1c1c1c;
   --lav: #211b33;
   color-scheme: dark;
@@ -43,6 +43,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 3px;
+}
+
 ::selection {
   background: var(--fg);
   color: var(--bg);
@@ -51,7 +57,7 @@ body {
 /* Soft lavender wave: gentle amplitude, set by the SVG tile (22x6) */
 .wavy,
 .nav-link {
-  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='6' viewBox='0 0 22 6'%3E%3Cpath d='M0 3 Q5.5 0 11 3 T22 3' fill='none' stroke='%23d9c9ee' stroke-width='2'/%3E%3C/svg%3E");
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='6' viewBox='0 0 22 6'%3E%3Cpath d='M0 3 Q5.5 0 11 3 T22 3' fill='none' stroke='%239d80d6' stroke-width='2'/%3E%3C/svg%3E");
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
@@ -71,6 +77,11 @@ body {
   transition: color 0.15s, transform 0.2s ease, background-size 0.2s ease;
 }
 
+.nav-link.is-primary {
+  color: var(--fg);
+  font-weight: 500;
+}
+
 .nav-link:hover,
 .nav-link:focus-visible {
   color: var(--fg);
@@ -80,7 +91,14 @@ body {
 
 :root[data-theme="dark"] .wavy,
 :root[data-theme="dark"] .nav-link {
-  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='6' viewBox='0 0 22 6'%3E%3Cpath d='M0 3 Q5.5 0 11 3 T22 3' fill='none' stroke='%23826fa6' stroke-width='2'/%3E%3C/svg%3E");
+  --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='6' viewBox='0 0 22 6'%3E%3Cpath d='M0 3 Q5.5 0 11 3 T22 3' fill='none' stroke='%239a85c4' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .prose-link {

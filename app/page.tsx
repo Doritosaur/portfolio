@@ -1,16 +1,16 @@
 import { Fragment } from "react";
-import ProjectCard from "./components/ProjectCard";
+import ProjectCarousel from "./components/ProjectCarousel";
 import Sidebar from "./components/Sidebar";
 import { hero, projects, roles, skills } from "./content";
 
 const rule = "border-t border-rule";
-const item = `${rule} py-6 first:border-t-0 first:pt-0`;
+const item = `${rule} pt-5`;
 
 export default function Home() {
   return (
     <div
       id="top"
-      className="mx-auto flex max-w-[1400px] flex-col gap-10 px-6 py-10 lg:flex-row lg:gap-24 lg:px-12 lg:py-12"
+      className="mx-auto flex max-w-[1800px] flex-col gap-8 px-5 py-6 lg:flex-row lg:gap-10 lg:px-8 lg:py-10"
     >
       <Sidebar />
 
@@ -22,45 +22,36 @@ export default function Home() {
           I’m a <span className="wavy">{hero.role.toLowerCase()}</span> based in {hero.location}.
         </p>
 
-        <section className="mt-8 grid gap-5 sm:grid-cols-2">
-          {projects.map((p) => (
-            <ProjectCard key={p.id} project={p} />
-          ))}
-        </section>
-
-        <div className="mt-10 max-w-3xl space-y-6">
+        <div id="about" className="mt-10 max-w-3xl scroll-mt-12 space-y-6">
           <p>
-            <strong className="wavy font-semibold">Co-Founder &amp; Founding Engineer.</strong>{" "}
-            Built and shipped the core product from 0 to 1, owning architecture, engineering, and
-            key technical decisions as part of the founding team. Wore multiple hats across
-            product, infrastructure, and growth to take the company from idea to a working
-            platform.
+            I make websites and apps that are simple to use. I’ve been at it for 6 years,
+            and I like seeing an idea through until real people are using it.
           </p>
           <p>
-            Most of my work sits where data-heavy interfaces meet the systems behind them. At
-            Cryptk that meant a canvas-based charting library rendering 100K+ candles, a
-            WebSocket pipeline handling 500+ updates a second, and typed models for raw Ethereum
-            data. Before that I built analytics tooling at Ascendeum and a supply chain platform
-            for METRO at Infosys, including a 100+ component library shared across three teams.
-          </p>
-          <p>
-            Today I’m a <span className="wavy">full stack engineer</span> at SuperLaw, building
-            WebSocket-based chat interfaces for legal document workflows, wiring LLMs into case
-            ingestion for AI-powered legal research, and shipping the FastAPI services behind
-            document processing. I like owning a feature from the interface down to the backend.
+            I care about the details: clean design, pages that load fast, and things that just
+            work the way you’d expect.
           </p>
         </div>
 
-        <section id="experience" className={`${rule} mt-12 scroll-mt-12 pt-10`}>
+        <section id="projects" className={`${rule} mt-10 scroll-mt-12 pt-8`}>
+          <h2 className="text-2xl font-semibold">Projects</h2>
+          <div className="mt-6">
+            <ProjectCarousel projects={projects} />
+          </div>
+        </section>
+
+        <section id="experience" className={`${rule} mt-10 scroll-mt-12 pt-8`}>
           <h2 className="text-2xl font-semibold">Experience</h2>
-          <ul className="mt-6">
+          <ul className="mt-5 space-y-6">
             {roles.map((r) => (
               <li key={r.company} className={item}>
-                <div>
-                  <span className="text-muted">{r.period}</span> {r.role},{" "}
-                  <span className="text-xl font-semibold">{r.company}</span>
+                <div className="flex flex-wrap items-baseline justify-between gap-x-6">
+                  <h3 className="text-xl font-semibold">
+                    {r.company} <span className="text-base font-normal text-muted">{r.role}</span>
+                  </h3>
+                  <p className="text-muted">{r.period}</p>
                 </div>
-                <ul className="mt-2 max-w-3xl list-disc space-y-1 pl-5 text-muted marker:text-rule">
+                <ul className="mt-2 list-disc space-y-1 pl-5 marker:text-muted">
                   {r.highlights.map((h) => (
                     <li key={h}>{h}</li>
                   ))}
@@ -70,7 +61,7 @@ export default function Home() {
           </ul>
         </section>
 
-        <section id="skills" className={`${rule} mt-6 scroll-mt-12 pt-10`}>
+        <section id="skills" className={`${rule} mt-10 scroll-mt-12 pt-8`}>
           <h2 className="text-2xl font-semibold">Skills</h2>
           <dl className="mt-4 grid grid-cols-[8rem_1fr] gap-x-6 gap-y-1">
             {skills.map((g) => (
