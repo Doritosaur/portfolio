@@ -57,16 +57,11 @@ export default function ProjectCard({ project: p }: { project: Project }) {
             />
           )
         )}
-
-        <div className="absolute inset-x-0 bottom-0 flex flex-wrap items-baseline gap-x-4 gap-y-0.5 bg-gradient-to-t from-black/80 via-black/45 to-transparent px-5 pb-4 pt-16 text-white [text-shadow:0_1px_6px_rgb(0_0_0/0.5)]">
-          <h3 className="mr-auto text-lg font-semibold">{p.title}</h3>
-          {p.link && <span className="text-white/90">↗</span>}
-        </div>
       </div>
     </>
   );
 
-  const className = "group block h-full scroll-mt-12";
+  const className = "group block h-full";
   return p.link ? (
     <a href={p.link} target="_blank" rel="noopener noreferrer" className={className}>
       {body}

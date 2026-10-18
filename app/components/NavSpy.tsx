@@ -29,19 +29,11 @@ export default function NavSpy({ projectIds }: { projectIds: string[] }) {
       if (atBottom) section = SECTIONS[SECTIONS.length - 1];
       const current = new Set([section]);
 
-      const sticky = document.querySelector('[aria-label="Projects"]')?.firstElementChild;
-      if (section === "projects" && sticky) {
-        const box = sticky.getBoundingClientRect();
-        const mid = box.left + box.width / 2;
-        let best = 0;
-        let bestDist = Infinity;
-        Array.from(sticky.firstElementChild!.children).forEach((slide, i) => {
-          const r = slide.getBoundingClientRect();
-          const d = Math.abs(r.left + r.width / 2 - mid);
-          if (d < bestDist) {
-            bestDist = d;
-            best = i;
-          }
+      if (section === "projects") {
+        let best = -1;
+        projectIds.forEach((id, i) => {
+          const el = document.getElementById(id);
+          if (el && el.getBoundingClientRect().top <= line) best = i;
         });
         if (projectIds[best]) current.add(projectIds[best]);
       }

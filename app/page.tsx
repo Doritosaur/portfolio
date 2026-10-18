@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import ProjectCarousel from "./components/ProjectCarousel";
+import ProjectStack from "./components/ProjectStack";
 import Sidebar from "./components/Sidebar";
 import { hero, projects, roles, skills } from "./content";
 
@@ -23,21 +23,26 @@ export default function Home() {
         </p>
 
         <div id="about" className="mt-10 max-w-3xl scroll-mt-12 space-y-6">
+          <p>I love building things with computers.</p>
           <p>
-            I make websites and apps that are simple to use. I’ve been at it for 6 years,
-            and I like seeing an idea through until real people are using it.
+            I enjoy exploring ideas, experimenting with new technologies, and turning things I’m
+            curious about into something real. I’m especially drawn to understanding how things
+            work under the hood, from the systems that power an application to the details that
+            make a product feel right.
           </p>
           <p>
-            I care about the details: clean design, pages that load fast, and things that just
-            work the way you’d expect.
+            Over the years, that curiosity has taken me from building products from scratch as a
+            founding engineer to exploring AI, backend systems, and everything in between.
+          </p>
+          <p>
+            I like having the freedom to explore an idea, get my hands dirty, and see what I can
+            make of it. This website is a collection of some of those explorations.
           </p>
         </div>
 
         <section id="projects" className={`${rule} mt-10 scroll-mt-12 pt-8`}>
           <h2 className="text-2xl font-semibold">Projects</h2>
-          <div className="mt-6">
-            <ProjectCarousel projects={projects} />
-          </div>
+          <ProjectStack projects={projects} />
         </section>
 
         <section id="experience" className={`${rule} mt-10 scroll-mt-12 pt-8`}>
@@ -51,11 +56,7 @@ export default function Home() {
                   </h3>
                   <p className="text-muted">{r.period}</p>
                 </div>
-                <ul className="mt-2 list-disc space-y-1 pl-5 marker:text-muted">
-                  {r.highlights.map((h) => (
-                    <li key={h}>{h}</li>
-                  ))}
-                </ul>
+                <p className="mt-2 max-w-3xl">{r.summary}</p>
               </li>
             ))}
           </ul>

@@ -12,7 +12,7 @@ export interface Role {
   period: string;
   role: string;
   company: string;
-  highlights: string[];
+  summary: string;
 }
 
 export interface SkillGroup {
@@ -38,37 +38,29 @@ export const roles: Role[] = [
     period: "Feb 2026 – Now",
     role: "Full Stack Engineer",
     company: "SuperLaw",
-    highlights: [
-      "Built chat and document-review interfaces for legal work, with AI-assisted case research.",
-      "Built the backend services for file conversion, translation and AI document processing.",
-    ],
+    summary:
+      "At SuperLaw I work across the stack, from the chat and document-review interfaces lawyers use, with AI-assisted case research, to the backend services behind file conversion, translation and AI document processing.",
   },
   {
     period: "Oct 2022 – Dec 2024",
     role: "Co-Founder / Full Stack Engineer",
     company: "Cryptk",
-    highlights: [
-      "Built a charting library that draws 100K+ candles in under 100ms.",
-      "Built a live price feed handling 500+ updates a second.",
-    ],
+    summary:
+      "Co-founded a crypto trading product and owned most of its engineering. That included a custom charting library that renders over 100K candles in under 100ms, and a live price feed that keeps up with more than 500 updates a second.",
   },
   {
     period: "Mar 2022 – Sep 2022",
     role: "Software Engineer / Frontend Engineer",
     company: "Ascendeum",
-    highlights: [
-      "Built an interactive charting library for ad analytics.",
-      "Built ad tracking and budget tools used across 50+ client accounts.",
-    ],
+    summary:
+      "Worked on the frontend for ad analytics, creating an interactive charting library and the ad tracking and budget tools that more than 50 client accounts relied on.",
   },
   {
     period: "Aug 2020 – Mar 2022",
     role: "System Engineer Specialist",
     company: "Infosys",
-    highlights: [
-      "Built a supply chain platform for METRO, with a 100+ component library shared by 3 teams.",
-      "Improved the DHL shipment system (10K+ daily operations) and halved database query times.",
-    ],
+    summary:
+      "Delivered a supply chain platform for METRO, backed by a library of over 100 components that three teams shared. Also tuned the DHL shipment system, which handles more than 10K operations a day, and cut its database query times in half.",
   },
 ];
 
