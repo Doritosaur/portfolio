@@ -25,7 +25,7 @@ export const hero = {
   role: "Full Stack Engineer",
   location: "Bengaluru, India",
   resumeLink:
-    "https://drive.google.com/file/d/11FiHlMzeQneIJGoQRT-1l4-cHaIZlwQ8/view?usp=sharing",
+    "https://drive.google.com/file/d/1U6MGHOY_zNJB7DsK5WxidJntIDfYqBsM/view?usp=sharing",
   socials: [
     { label: "Github", href: "https://github.com/Doritosaur" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/amanadhikari31" },
@@ -45,7 +45,7 @@ export const roles: Role[] = [
   },
   {
     period: "Oct 2022 – Dec 2024",
-    role: "Co-Founder / Frontend Engineer",
+    role: "Co-Founder / Full Stack Engineer",
     company: "Cryptk",
     highlights: [
       "Built a charting library that draws 100K+ candles in under 100ms.",
