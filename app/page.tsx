@@ -16,7 +16,7 @@ export default function Home() {
 
       <main className="min-w-0 flex-1 pb-24">
         <h1 className="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-          Hello! I’m Aman <span className="font-normal text-muted">(he/him)</span>
+          Hello! I’m Aman
         </h1>
         <p className="mt-4 text-2xl leading-snug sm:text-3xl">
           I’m a <span className="wavy">{hero.role.toLowerCase()}</span> based in {hero.location}.
