@@ -1,5 +1,6 @@
 import { Karla } from "next/font/google";
 import "./globals.css";
+import ServiceWorker from "./components/ServiceWorker";
 import type { Metadata } from "next";
 
 const karla = Karla({ subsets: ["latin"], variable: "--font-karla" });
@@ -23,7 +24,10 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <ServiceWorker />
+      </body>
     </html>
   );
 }
