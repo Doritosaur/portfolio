@@ -1,6 +1,7 @@
 import { Karla } from "next/font/google";
 import "./globals.css";
 import ServiceWorker from "./components/ServiceWorker";
+import { Analytics } from "@vercel/analytics/next";
 import type { Metadata } from "next";
 
 const karla = Karla({ subsets: ["latin"], variable: "--font-karla" });
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body>
         {children}
         <ServiceWorker />
+        <Analytics />
       </body>
     </html>
   );

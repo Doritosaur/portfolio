@@ -1,6 +1,6 @@
 // Bump VERSION to drop old caches. Hashed /_next/static files never change, so cache-first is safe;
 // pages are network-first so deploys show up immediately when online.
-const VERSION = "v1";
+const VERSION = "v2";
 const CACHE = `portfolio-${VERSION}`;
 const PRECACHE = ["/", "/offline", "/me.jpg"];
 
@@ -24,6 +24,8 @@ self.addEventListener("fetch", (event) => {
   if (request.method !== "GET") return;
   const url = new URL(request.url);
   if (url.origin !== self.location.origin) return;
+  // Vercel analytics script must always come from the network, never the cache.
+  if (url.pathname.startsWith("/_vercel/")) return;
 
   if (request.mode === "navigate") {
     event.respondWith(
