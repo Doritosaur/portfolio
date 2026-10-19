@@ -6,8 +6,8 @@ import ProjectCard from "./ProjectCard";
 
 const STICKY_TOP = 48;
 const SLACK = 24;
-const GLIDE_MS = 700;
-const PAUSE_MS = 90;
+const GLIDE_MS = 550;
+const PAUSE_MS = 120;
 const SWIPE_PX = 24;
 
 export default function ProjectStack({ projects }: { projects: Project[] }) {
@@ -20,6 +20,8 @@ export default function ProjectStack({ projects }: { projects: Project[] }) {
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
     let animating = false;
     let lastInput = 0;
+    let lastAbs = 0;
+    let lastDown = true;
     let frame = 0;
 
     const stops = () => {
@@ -69,14 +71,24 @@ export default function ProjectStack({ projects }: { projects: Project[] }) {
     const onWheel = (e: WheelEvent) => {
       if (e.ctrlKey || e.deltaY === 0 || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
       const down = e.deltaY > 0;
+      const now = performance.now();
+      const abs = Math.abs(e.deltaY);
+      // Trackpad momentum (strong on Mac/Safari) decays for ~1s after a flick. A new gesture is
+      // either a pause in events, a change of direction, or a delta that grows instead of decaying
+      const fresh =
+        now - lastInput > PAUSE_MS ||
+        down !== lastDown ||
+        abs > lastAbs * 1.3 + 2;
+      lastInput = now;
+      lastAbs = abs;
+      lastDown = down;
       if (animating) {
         e.preventDefault();
-        lastInput = performance.now();
-        return;
+        // A fresh gesture mid-glide retargets immediately instead of being swallowed
+        if (!fresh) return;
+        cancelAnimationFrame(frame);
+        animating = false;
       }
-      // Trackpad momentum keeps sending events: wait for a pause before starting another move
-      const fresh = performance.now() - lastInput > PAUSE_MS;
-      lastInput = performance.now();
       if (nextStop(down) === undefined) return;
       e.preventDefault();
       if (fresh) go(down);
